@@ -1,0 +1,5 @@
+/bin/
+/obj/
+/Properties/
+*.Debug.config
+*.Release.config
