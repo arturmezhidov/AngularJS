@@ -13,6 +13,7 @@
 		var vm = this;
 		vm.categories = CategoryService.getAll();
 		vm.current = new Category(-1, "Последние новости");
+		vm.newCategory = null;
 		vm.selectCategory = selectCategory;
 
 		function selectCategory(category) {

@@ -25,7 +25,6 @@
 			categories.push(new Category(maxId + 1, name));
 			return categories;
 		}
-
 		function find(id) {
 			for (var i = 0; i < categories.length; i++) {
 				if (categories[i].id === id) {
@@ -37,38 +36,33 @@
 			}
 			return null;
 		};
-
 		function rename(id, name) {
 			var result = self.find(id);
 			if (result) {
 				result.obj.name = name;
 			}
 		}
-
 		function remove(id) {
 			var result = self.find(id);
 			if (result) {
 				categories.splice(result.index, 1);
 			}
 		}
-
 		function getAll() {
 			return categories;
 		}
-
 		function getById(id) {
 			var result = self.find(id);
 			return result && result.obj;
 		}
 
-		$.ajax({
-			url: "app-data/categories.json",
-			dataType: "json",
-			async: false,
-			success: function (response) {
-				categories = response;
-			}
-		});
-
+		$http.get("app-data/categories.json")
+			.then(function (response) {
+				response.data.forEach(function(item) {
+					categories.push(item);
+				});
+			}, function (response) {
+				alert('category sevice error');
+			});
 	}
 })();

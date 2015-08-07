@@ -1,0 +1,11 @@
+﻿<h4>Редактирование категорий</h4>
+<div ng-repeat="category in ctrl.categories" class="category-edit-form">
+	<div class="row-ctegory-edit">
+		<input type="text" ng-model="category.name" class="tb-category input-sm">
+		<button ng-click="ctrl.removeCategory(category)" class="btn btn-default">Удалить</button>
+	</div>
+</div>
+<div class="row-ctegory-edit">
+	<input type="text" ng-model="ctrl.newCategory" class="tb-category input-sm" placeholder="Новая категория">
+	<button ng-click="ctrl.addCategory()" class="btn btn-default">Добавить</button>
+</div>

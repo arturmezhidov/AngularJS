@@ -22,6 +22,11 @@
 				controller: 'NewController',
 				controllerAs: 'ctrl'
 			})
+			.when('/edit', {
+				templateUrl: '/app/views/edit-category.html',
+				controller: 'EditCategoryController',
+				controllerAs: 'ctrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});

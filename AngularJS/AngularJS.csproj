@@ -80,8 +80,10 @@
     <Content Include="app\services\news.js" />
     <Content Include="app\filters\new-preview.js" />
     <Content Include="app\templates\new-preview.html" />
+    <Content Include="app\views\create-new.html" />
     <Content Include="app\views\new.html" />
     <Content Include="content\styles\style.css" />
+    <Content Include="scripts\dlg.js" />
     <Content Include="scripts\version.json" />
     <Content Include="scripts\errors.json" />
     <Content Include="scripts\angular-touch.min.js.map" />
