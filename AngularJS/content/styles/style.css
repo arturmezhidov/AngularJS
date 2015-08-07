@@ -1,0 +1,42 @@
+﻿.logo {
+	font-size: 32px;
+	margin: 10px;
+}
+
+.search {
+	margin: 20px;
+	width: 400px;
+}
+
+.content {
+	display: table;
+	width: 100%;
+ 
+	min-width: 700px;
+	padding-top: 20px;
+}
+
+.category-container {
+	display: table-cell;
+	vertical-align: top;
+	width: 270px;
+}
+
+.category-list {
+	font-size: 16px;
+}
+ 
+.news-container {
+	display: table-cell;
+	padding-left: 10px;
+}
+
+.news-head {
+	font-size: 24px;
+	display: inline;
+}
+
+.btn-new-add {
+	float: right;
+	margin: 6px;
+}
