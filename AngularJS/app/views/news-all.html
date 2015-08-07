@@ -1,5 +1,17 @@
-﻿<div ng-repeat="newInfo in ctrl.news | newsOfCategory:ctrlCategory.current.id">
+﻿<div class="panel-group category-panel">
+	<div class="panel panel-default">
 
-	<new-preview info="newInfo"></new-preview>
+		<div class="panel-heading">
+			<p ng-bind="ctrl.currentCategory.name" class="news-head"></p>
+		</div>
 
+		<div class="panel-body">
+			<div ng-repeat="newInfo in ctrl.news | newsOfCategory:102">
+
+				<new-preview info="newInfo"></new-preview>
+
+			</div>
+		</div>
+
+	</div>
 </div>

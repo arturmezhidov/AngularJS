@@ -72,15 +72,19 @@
     <Content Include="app-data\images\s3.jpg" />
     <Content Include="app-data\images\s4.jpg" />
     <Content Include="app-data\images\s5.jpg" />
+    <Content Include="app\controllers\edit-categories.js" />
     <Content Include="app\controllers\new.js" />
     <Content Include="app\filters\news-of-category.js" />
-    <Content Include="app\services\category.js" />
+    <Content Include="app\services\build-category-factory.js" />
+    <Content Include="app\services\categories-edit-service.js" />
+    <Content Include="app\services\categories-service.js" />
     <Content Include="app\config.js" />
     <Content Include="app\directives\new-preview.js" />
     <Content Include="app\services\news.js" />
     <Content Include="app\filters\new-preview.js" />
     <Content Include="app\templates\new-preview.html" />
     <Content Include="app\views\create-new.html" />
+    <Content Include="app\views\edit-category.html" />
     <Content Include="app\views\new.html" />
     <Content Include="content\styles\style.css" />
     <Content Include="scripts\dlg.js" />
@@ -110,8 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\controllers\news-category.js" />
-    <Content Include="app\models\Category.js" />
+    <Content Include="app\controllers\categories.js" />
     <Content Include="app\models\New.js" />
     <Content Include="content\styles\bootstrap-theme.css" />
     <Content Include="content\styles\bootstrap-theme.min.css" />

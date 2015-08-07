@@ -2,11 +2,13 @@
 
 	'use strict';
 
+	angular.module("Models", []);
 	angular.module("Category", []);
 	angular.module("News", []);
 
 	angular.module('app', [
 		'ngRoute',
+		'Models',
 		'Category',
 		'News'
 

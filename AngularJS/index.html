@@ -9,7 +9,6 @@
 
 	<script src="scripts/jquery-1.9.1.min.js"></script>
 	<!--<script src="scripts/dlg.js"></script>-->
-
 	<!--angular-->
 	<script src="scripts/angular.min.js"></script>
 	<script src="scripts/angular-route.min.js"></script>
@@ -18,11 +17,14 @@
 	<script src="app/app.js"></script>
 
 	<!--models-->
-	<script src="app/models/Category.js"></script>
 	<script src="app/models/New.js"></script>
 
+	<!-- factories -->
+	<script src="app/services/build-category-factory.js"></script>
+
 	<!--services-->
-	<script src="app/services/category.js"></script>
+	<script src="app/services/categories-service.js"></script>
+	<script src="app/services/categories-edit-service.js"></script>
 	<script src="app/services/news.js"></script>
 
 	<!--filters-->
@@ -33,10 +35,10 @@
 	<script src="app/directives/new-preview.js"></script>
 
 	<!--controllers-->
-	<script src="app/controllers/news-category.js"></script>
+	<script src="app/controllers/categories.js"></script>
 	<script src="app/controllers/news-all.js"></script>
 	<script src="app/controllers/new.js"></script>
-	<script src="app/controllers/edit-category.js"></script>
+	<script src="app/controllers/edit-categories.js"></script>
 
 </head>
 <body>
@@ -60,44 +62,30 @@
 	<div class="container">
 		<div class="jumbotron">
 
-			<div ng-controller="CategoryController as ctrlCategory" class="content">
+			<div class="content">
 
-				<div class="category-container">
-					<div class="panel-group category-panel">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3>Категории</h3>
-							</div>
-							<div class="panel-body">
-								<div class="category-list">
-									<ul>
-										<li ng-repeat="category in ctrlCategory.categories" class="category-item">
-											<a href="#/" ng-click="ctrlCategory.selectCategory(category)">{{category.name}}</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="panel-heading">
-								<a href="#/edit" class="btn btn-default">Редактировать</a>
-							</div>
+				<div ng-controller="CategoryController as ctrlCategory" class="panel panel-default category-container">
+					<div class="panel-heading">
+						<h3>Категории</h3>
+					</div>
+					<div class="panel-body">
+						<div class="category-list">
+							<ul>
+								<li ng-repeat="category in ctrlCategory.categories" class="category-item">
+									<a href="#/" ng-click="ctrlCategory.selectCategory(category)">{{category.name}}</a>
+								</li>
+							</ul>
 						</div>
+					</div>
+					<div class="panel-heading">
+						<a href="#/edit" class="btn btn-default">Редактировать</a>
 					</div>
 				</div>
 
 				<div class="news-container">
-					<div class="panel-group category-panel">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<p ng-bind="ctrlCategory.current.name" class="news-head"></p>
-								<a href="#" class="btn btn-default btn-new-add">Добавить</a>
-							</div>
-							<div class="panel-body">
 
-								<ng-view></ng-view>
+					<ng-view></ng-view>
 
-							</div>
-						</div>
-					</div>
 				</div>
 
 			</div>

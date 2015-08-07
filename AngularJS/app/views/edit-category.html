@@ -6,6 +6,10 @@
 	</div>
 </div>
 <div class="row-ctegory-edit">
-	<input type="text" ng-model="ctrl.newCategory" class="tb-category input-sm" placeholder="Новая категория">
+	<input type="text" ng-model="ctrl.categoryName" class="tb-category input-sm" placeholder="Новая категория">
 	<button ng-click="ctrl.addCategory()" class="btn btn-default">Добавить</button>
+</div>
+<div class="row-ctegory-edit">
+	<button ng-click="ctrl.save()" class="btn btn-default">Сохранить</button>
+	<button ng-click="ctrl.reset()" class="btn btn-default">Сбросить</button>
 </div>

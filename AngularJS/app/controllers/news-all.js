@@ -6,10 +6,11 @@
 		.module('News')
 		.controller('AllNewsController', AllNewsController);
 
-	AllNewsController.$inject = ['$location', 'NewsService'];
+	AllNewsController.$inject = ['$location', 'NewsService', 'CategoryService'];
 
-	function AllNewsController($location, NewsService) {
+	function AllNewsController($location, srvNews, srvCategory) {
 		var vm = this;
-		vm.news = NewsService.getAll();
+		vm.news = srvNews.getAll();
+		vm.currentCategory = srvCategory.current();
 	}
 })();

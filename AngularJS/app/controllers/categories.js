@@ -8,16 +8,14 @@
 
 	categoryController.$inject = ['$location', 'CategoryService'];
 
-	function categoryController($location, CategoryService) {
+	function categoryController($location, srvCategory) {
 
 		var vm = this;
-		vm.categories = CategoryService.getAll();
-		vm.current = new Category(-1, "Последние новости");
-		vm.newCategory = null;
+		vm.categories = srvCategory.getAll();
 		vm.selectCategory = selectCategory;
 
 		function selectCategory(category) {
-			vm.current = category;
+			srvCategory.current(category);
 		}
 	}
 })();
