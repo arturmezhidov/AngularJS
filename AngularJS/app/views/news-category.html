@@ -1,0 +1,21 @@
+﻿<div class="caption-cotainer">
+	<div class="caption">
+		<p ng-bind="ctrl.currentCategory.name" class="caption-text"></p>
+	</div>
+	<div class="btn-head-container">
+		<a href="#/" class="btn-head">Categories</a>
+		<a href="#/create" class="btn-head">Add</a>
+	</div>
+</div>
+
+<div class="body-container">
+
+	<!--<div ng-if="ctrl.isEmpty()" class="shadow-panel">
+		<p class="info-text">No news in this category!</p>
+	</div>-->
+
+	<div ng-repeat="newsInfo in ctrl.news | newsOfCategory : ctrl.currentCategory.id">
+		<news-preview info="newsInfo"></news-preview>
+	</div>
+
+</div>

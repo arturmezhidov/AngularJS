@@ -1,15 +1,62 @@
-﻿<h4>Редактирование категорий</h4>
-<div ng-repeat="category in ctrl.categories" class="category-edit-form">
-	<div class="row-ctegory-edit">
-		<input type="text" ng-model="category.name" class="tb-category input-sm">
-		<button ng-click="ctrl.removeCategory(category)" class="btn btn-default">Удалить</button>
+﻿<div class="caption-cotainer">
+	<div class="caption">
+		<p class="caption-text">Editing categories</p>
+	</div>
+	<div class="btn-head-container">
+		<a href="#/" class="btn-head">Categories</a>
 	</div>
 </div>
-<div class="row-ctegory-edit">
-	<input type="text" ng-model="ctrl.categoryName" class="tb-category input-sm" placeholder="Новая категория">
-	<button ng-click="ctrl.addCategory()" class="btn btn-default">Добавить</button>
+
+<div class="body-container">
+	<div class="shadow-panel">
+
+		<div class="form-container">
+			<div ng-repeat="category in ctrl.categories" class="form-row">
+				<div class="form-cell">
+					<input type="text" ng-model="category.name" class="tb-form">
+				</div>
+				<div class="form-cell">
+					<button ng-click="ctrl.clear(category)" class="btn-form">Clear</button>
+				</div>
+				<div class="form-cell">
+					<input type="text" ng-model="category.file.name" class="tb-form">
+				</div>
+				<div class="form-cell">
+					<div class="file-upload">
+						<button class="btn-form">Image</button>
+						<input type="file" file="category.file" /> <!--ng-change="ctrl.test()"--> 
+					</div>
+				</div>
+				<div class="form-cell">
+					<button ng-click="ctrl.removeCategory(category)" class="btn-form-round"><span>Delete</span></button>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-cell">
+					<input type="text" ng-model="ctrl.categoryName" class="tb-form" placeholder="New category name">
+				</div>
+				<div class="form-cell">
+					<button ng-click="ctrl.addCategory()" class="btn-form">Add</button>
+				</div>
+				<div class="form-cell">
+					<input type="text" ng-model="ctrl.file.name" class="tb-form">
+				</div>
+				<div class="form-cell">
+					<div class="file-upload">
+						<button class="btn-form">Image</button>
+						<input type="file" file="ctrl.file" />
+					</div>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<button ng-click="ctrl.save()" class="btn-form-round">Save</button>
+				<button ng-click="ctrl.reset()" class="btn-form-round">Reset</button>
+			</div>
+
+		</div>
+	</div>
 </div>
-<div class="row-ctegory-edit">
-	<button ng-click="ctrl.save()" class="btn btn-default">Сохранить</button>
-	<button ng-click="ctrl.reset()" class="btn btn-default">Сбросить</button>
-</div>
+
+ 

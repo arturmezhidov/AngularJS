@@ -6,9 +6,9 @@
 		.module('News')
 		.service('NewsService', NewsService);
 
-	NewsService.$inject = ['$http'];
+	NewsService.$inject = ['$http', 'BuildNewsFactory'];
 
-	function NewsService($http) {
+	function NewsService($http, buildNews) {
 
 		var self = this;
 		var news = [];
@@ -22,14 +22,23 @@
 
 		function add(head, body, imgUrl, idCategory, date) {
 			var maxId = (news.length && news[news.length - 1].id) || 0;
-			date = date || (new Date()).toLocaleDateString();
-			news.push(new New(head, body, imgUrl, maxId + 1, idCategory, date));
+			if (!date) {
+				date = (new Date()).toLocaleDateString();
+			} else if ((typeof date) == "object") {
+				date = date.toLocaleDateString();
+			}
+			idCategory = isNaN(idCategory)
+				? -1
+				: parseInt(idCategory);
+			news.unshift(buildNews.create(maxId + 1, idCategory, head, body, imgUrl, date));
 		}
 		function find(id) {
+			if (isNaN(id)) {
+				return null;
+			}
+			id = parseInt(id);
 			for (var i = 0; i < news.length; i++) {
-				var t = news[i];
-				var y = t.id;
-				if (y == id) {
+				if (news[i].id === id) {
 					return {
 						index: i,
 						obj: news[i]
@@ -62,11 +71,11 @@
 		}
 
 		$http.get("app-data/news.json")
-			.then(function(response) {
-				response.data.forEach(function(item) {
+			.then(function (response) {
+				response.data.forEach(function (item) {
 					news.push(item);
 				});
-			}, function(response) {
+			}, function (response) {
 				alert('news sevice error');
 			});
 	}

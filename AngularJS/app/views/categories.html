@@ -1,0 +1,18 @@
+﻿<div class="caption-cotainer">
+	<div class="caption">
+		<p class="caption-text">All category news</p>
+	</div>
+	<div class="btn-head-container">
+		<a href="#/create" class="btn-head">Create news</a>
+		<a href="#/edit" class="btn-head">Edit</a>
+	</div>
+</div>
+
+<div class="body-container">
+	<a href="#/news-category" ng-repeat="category in ctrl.categories">
+		<div ng-click="ctrl.selectCategory(category)" class="category-container">
+			<img ng-src="{{category.file.name}}" class="category-img" />
+			<p ng-bind="category.name" class="category-caption"></p>
+		</div>
+	</a>
+</div>

@@ -2,9 +2,15 @@
 <html ng-app="app" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Angular JS</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+	<link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+
+
 	<link href="content/styles/reset.css" rel="stylesheet" />
-	<link href="content/styles/bootstrap.css" rel="stylesheet" />
-	<link href="content/styles/templates.css" rel="stylesheet" />
 	<link href="content/styles/style.css" rel="stylesheet" />
 
 	<script src="scripts/jquery-1.9.1.min.js"></script>
@@ -16,119 +22,68 @@
 	<!--app-->
 	<script src="app/app.js"></script>
 
-	<!--models-->
-	<script src="app/models/New.js"></script>
-
 	<!-- factories -->
 	<script src="app/services/build-category-factory.js"></script>
+	<script src="app/services/build-news-factory.js"></script>
 
 	<!--services-->
 	<script src="app/services/categories-service.js"></script>
+	<script src="app/services/news-service.js"></script>
 	<script src="app/services/categories-edit-service.js"></script>
-	<script src="app/services/news.js"></script>
+	<script src="app/services/search-service.js"></script>
 
 	<!--filters-->
-	<script src="app/filters/new-preview.js"></script>
+	<script src="app/filters/news-preview-text.js"></script>
 	<script src="app/filters/news-of-category.js"></script>
+	<script src="app/filters/categories-news.js"></script>
 
 	<!--directives-->
-	<script src="app/directives/new-preview.js"></script>
+	<script src="app/directives/news-preview.js"></script>
+	<script src="app/directives/file.js"></script>
 
 	<!--controllers-->
 	<script src="app/controllers/categories.js"></script>
-	<script src="app/controllers/news-all.js"></script>
-	<script src="app/controllers/new.js"></script>
+	<script src="app/controllers/news-category.js"></script>
+	<script src="app/controllers/news.js"></script>
 	<script src="app/controllers/edit-categories.js"></script>
+	<script src="app/controllers/create-news.js"></script>
+	<script src="app/controllers/news-search.js"></script>
+	<script src="app/controllers/search-result.js"></script>
 
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top head">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand logo" href="#/">Новости</a>
-			</div>
-			<div class="navbar-right navbar-form search">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Поиск" />
-					<span class="input-group-btn">
-						<button class="btn btn-default">Найти</button>
-					</span>
-				</div>
-			</div>
-		</div>
-	</nav>
-	<br />
 	<div class="container">
-		<div class="jumbotron">
 
-			<div class="content">
-
-				<div ng-controller="CategoryController as ctrlCategory" class="panel panel-default category-container">
-					<div class="panel-heading">
-						<h3>Категории</h3>
+		<div class="header">
+			<div class="logo-container">
+				<a class="logo" href="#/">World News</a>
+			</div>
+			<div ng-controller="NewsSearchController as ctrlSearch" class="search-container">
+				<div class="search-group">
+					<div class="tb-search-container">
+						<input type="text" ng-model="ctrlSearch.searchInfo.text" class="tb-search" placeholder="Search" />
 					</div>
-					<div class="panel-body">
-						<div class="category-list">
-							<ul>
-								<li ng-repeat="category in ctrlCategory.categories" class="category-item">
-									<a href="#/" ng-click="ctrlCategory.selectCategory(category)">{{category.name}}</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="panel-heading">
-						<a href="#/edit" class="btn btn-default">Редактировать</a>
+					<div class="btn-search-container">
+						<button ng-click="ctrlSearch.search()" class="btn-search"><span class="icon icon-search"></span></button>
 					</div>
 				</div>
+			</div>
+		</div>
 
-				<div class="news-container">
+		<div class="content">
+			<div class="left-bar">
+			</div>
+			<div class="center-bar">
 
-					<ng-view></ng-view>
-
-				</div>
+				<ng-view></ng-view>
 
 			</div>
+			<div class="right-bar">
 
+			</div>
 		</div>
+
 	</div>
-
-
-
-	<!--<ul>
-		<li ng-repeat="item in main.items" ng-click="main.removeFromStock(item, $index)">
-			{{ item.name }}
-			<button ng-click="main.removeFromStock">{{$index}}</button>
-		</li>
-	</ul>-->
-	<!--<div class="row">
-
-		<div class="col-4 col-sm-4 new-container">
-			<div class="new-head-container">
-				<a href="#">@заголовок@</a>
-			</div>
-			<div class="new-img-container">
-				<img src="Koala.jpg" class="new-img" alt="#"/>
-			</div>
-			<div class="new-description-container">
-				<p>@Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.@</p>
-			</div>
-			<div class="new-foot">
-				<div class="new-category-container">
-					<a href="#">@категория@</a>
-				</div>
-				<div class="new-date-container">
-					<span class="new-date">12.03.2015</span>
-				</div>
-			</div>
-		</div>
-
-	</div>-->
-
-
-
-
-
-
 </body>
 </html>

@@ -4,16 +4,16 @@
 
 	angular
 		.module('News')
-		.directive('newPreview', newPreview);
+		.directive('newsPreview', newsPreview);
 
-	function newPreview() {
+	function newsPreview() {
 		return {
 			restrict: 'EA',
 			replace: true,
 			scope: {
-				newInfo: "=info"
+				newsInfo: "=info"
 			},
-			templateUrl: "app/templates/new-preview.html"
+			templateUrl: "app/templates/news-preview.html"
 		};
 	}
 })();

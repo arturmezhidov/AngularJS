@@ -6,22 +6,32 @@
 		.module('Category')
 		.service('CategoryService', CategoryService);
 
-	CategoryService.$inject = ['$http'];
+	CategoryService.$inject = ['$http', 'BuildCategoryFactory'];
 
-	function CategoryService($http) {
+	function CategoryService($http, buildCategory) {
 
 		var self = this;
-		var categories = null;
-		var currentCategory = null;
+		var categories;
+		var currentCategory;
 
 		this.getAll = getAll;
 		this.getById = getById;
 		this.current = current;
 
 		function getAll() {
+
 			if (!categories) {
-				categories = query();
+
+				categories = [];
+
+				$http.get("app-data/categories.json")
+					.then(function (response) {
+						response.data.forEach(function (item) {
+							categories.push(item);
+						});
+					});
 			}
+
 			return categories;
 		}
 		function getById(id) {
@@ -34,24 +44,14 @@
 			return null;
 		}
 		function current(category) {
+			if (!currentCategory) {
+				currentCategory = {};
+			}
 			if (category) {
-				currentCategory.id = category.id;
-				currentCategory.name = category.name;
+				buildCategory.copy(category, currentCategory);
 			}
 			return currentCategory;
 		}
-
-		function query() {
-			var result = [];
-			$http.get("app-data/categories.json")
-				.then(function (response) {
-					response.data.forEach(function (item) {
-						result.push(item);
-					});
-				}, function (response) {
-					alert('category sevice error');
-				});
-			return result;
-		}
 	}
+
 })();

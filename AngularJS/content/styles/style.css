@@ -1,47 +1,490 @@
-﻿.logo {
-	font-size: 32px;
-	margin: 10px;
+﻿@font-face {
+	font-family: 'Aquarelle';
+	src: url('../fonts/Aquarelle.ttf');
 }
 
-.search {
-	margin: 20px;
-	width: 400px;
+@font-face {
+	font-family: 'Glyphicons Halflings';
+	src: url('../fonts/glyphicons-halflings-regular.eot');
+	src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
+
+@font-face {
+	font-family: 'Andantino script';
+	src: url('../fonts/Andantino_script.ttf');
+}
+
+@font-face {
+	font-family: 'Ariston';
+	src: url('../fonts/Ariston.ttf');
+}
+
+body {
+	background-image: url('../images/bg1.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.container {
+	width: 1000px;
+	margin: 0px auto;
+}
+
+.header {
+	display: table;
+	width: 100%;
+	height: 100px;
+}
+
+.logo-container {
+	display: table-cell;
+	width: 50%;
+	vertical-align: middle;
+}
+
+.search-container {
+	display: table-cell;
+	width: 50%;
+	vertical-align: middle;
+}
+
+.logo {
+	color: white;
+	font-family: 'Aquarelle', 'Dancing Script', cursive;
+	font-size: 72px;
+	font-weight: bold;
+	text-shadow: rgb(3, 3, 3) -25px -8px 8px;
+	opacity: 0.7;
+	text-decoration: none;
+}
+
+.search-group {
+	display: table;
+	width: 100%;
+	opacity: 0.9;
+}
+
+.tb-search-container {
+	display: table-cell;
+	text-align: right;
+	width: 90%;
+}
+
+.btn-search-container {
+	display: table-cell;
+	text-align: left;
+	width: 10%;
+}
+
+.tb-search {
+	width: 80%;
+	height: 33px;
+	padding-left: 10px;
+	border-radius: 18px 0 0 18px;
+	box-shadow: -7px -7px 20px rgba(0,0,0,0.5);
+	border: none;
+	outline: none;
+}
+
+.btn-search {
+	width: 34px;
+	height: 35px;
+	border: none;
+	outline: none;
+	border-radius: 0 18px 18px 0;
+	cursor: pointer;
+}
+
+	.btn-search:active {
+		border: 1px solid #AAA;
+	}
+
+.icon {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+	content: "\e003";
+}
+
+
 
 .content {
 	display: table;
 	width: 100%;
- 
-	min-width: 700px;
-	padding-top: 20px;
+	height: 300px;
 }
+
+.left-bar {
+	display: table-cell;
+	width: 6%;
+	height: 100%;
+}
+
+.right-bar {
+	display: table-cell;
+	position: relative;
+	width: 6%;
+	height: 100%;
+	padding: 5px;
+}
+
+.center-bar {
+	display: table-cell;
+	width: 88%;
+	height: 100%;
+}
+
+.bar-container {
+	position: fixed;
+}
+
+.caption-cotainer {
+	display: table;
+	width: 100%;
+	box-shadow: -3px -3px 15px rgba(34,14,05, 0.5);
+	border-radius: 10px;
+}
+
+.caption {
+	display: table-cell;
+	padding: 10px 0 10px 30px;
+}
+
+.btn-head-container {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: right;
+	padding-right: 20px;
+}
+/* ///////////****************************/
+.caption-text {
+	color: white;
+	font-family: 'Ariston', cursive;
+	font-size: 42px;
+	font-weight: bold;
+	text-shadow: rgb(3, 3, 3) -25px -8px 8px;
+	opacity: 0.7;
+}
+
+.icon-edit:before {
+	content: "\e065";
+}
+
+.btn-head {
+	color: white;
+	font-family: 'Ariston', cursive;
+	font-size: 26px;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 3px 12px;
+	border: none;
+	outline: none;
+	border-radius: 6px;
+	cursor: pointer;
+	box-shadow: rgba(3, 3, 3, 0.5) -2px -2px 15px;
+	opacity: 0.8;
+}
+
+.btn-category-edit:active {
+	border: 1px solid #AAA;
+}
+
+
+.body-container {
+	width: 100%;
+	margin-top: 20px;
+}
+
 
 .category-container {
-	display: table-cell;
-	vertical-align: top;
-	width: 270px;
+	display: inline-block;
+	position: relative;
+	width: 200px;
+	height: 200px;
+	margin: 8px;
+	box-shadow: -3px -3px 15px rgba(34,14,05, 0.5);
+	border-radius: 10px;
+	cursor: pointer;
 }
 
-.category-list {
-	font-size: 16px;
+.category-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	opacity: 0.7;
 }
- 
-.news-container {
-	display: table-cell;
-	padding-left: 10px;
+
+	.category-img:hover {
+		opacity: 1;
+	}
+
+.category-caption {
+	position: absolute;
+	top: 20px;
+	left: 10px;
+	color: white;
+	font-family: 'Dancing Script', cursive;
+	font-size: 42px;
+	text-align: center;
+}
+
+	.category-caption:hover {
+		font-weight: bold;
+	}
+
+
+
+.news-preview-container {
+	position: relative;
+	width: 100%;
+	height: 190px;
+	margin: 20px 0;
+	font-family: 'Ariston', cursive;
+	box-shadow: -3px -3px 15px rgba(34,14,05, 0.5);
+	border-radius: 10px;
+}
+
+.news-preview-img-container {
+	float: left;
+	width: 200px;
+	height: 100%;
+	margin-right: 10px;
+	border-radius: 10px;
+}
+
+.news-preview-img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	opacity: 0.9;
+}
+
+.news-preview-head-container {
+	padding: 10px;
+}
+
+.news-preview-head {
+	color: white;
+	font-size: 22px;
+	font-weight: bold;
+	text-align: justify;
+	text-indent: 30px;
+	opacity: 0.8;
+}
+
+.news-preview-text-container {
+	padding-right: 10px;
+}
+
+.news-preview-text {
+	color: white;
+	font-size: 20px;
+	text-align: justify;
+	text-indent: 30px;
+}
+
+.news-preview-footer {
+	position: absolute;
+	bottom: 10px;
+	left: 210px;
+	width: 75%;
+}
+
+.news-preview-readmore {
+	color: black;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: white;
+	border-radius: 5px;
+	padding: 4px 10px;
+	opacity: 0.6;
+}
+
+.news-date {
+	float: right;
+	font-weight: bold;
+}
+
+.news-body {
+	box-shadow: -3px -3px 15px rgba(34,14,05, 0.5);
+	font-family: 'Ariston', cursive;
+	text-align: justify;
+	padding: 10px 10px 25px;
+	margin-bottom: 40px;
+	border-radius: 10px;
+	min-height: 390px;
 }
 
 .news-head {
+	color: white;
+	font-size: 28px;
+	font-weight: bold;
+	text-indent: 40px;
+	opacity: 0.8;
+	margin-bottom: 20px;
+}
+
+.news-img {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin-right: 15px;
+	box-shadow: -3px -3px 15px rgba(34,14,05, 0.5);
+}
+
+.news-text {
 	font-size: 24px;
-	display: inline;
+	text-indent: 40px;
 }
 
-.btn-new-add {
-	float: right;
-	margin: 6px;
+.shadow-panel {
+	box-shadow: -3px -3px 15px rgba(34,14,05, 0.5);
+	border-radius: 10px;
 }
 
-.tb-category {
-	height: 34px;
-	width: 50%;
+.error-panel {
+	margin-top: 20px;
+}
+
+.info-text {
+	color: white;
+	font-size: 28px;
+	font-family: 'Ariston', cursive;
+	text-indent: 40px;
+	text-align: justify;
+	font-weight: bold;
+	padding: 20px;
+	opacity: 0.8;
+}
+
+.form-container {
+	width: 90%;
+	padding: 15px;
+}
+
+.form-row {
+	display: table;
+	width: 100%;
+}
+
+.form-cell {
+	display: table-cell;
+	vertical-align: top;
+	padding-bottom: 15px;
+}
+
+.tb-form, .tb-form-round {
+	width: 100%;
+	height: 30px;
+	outline: none;
+	border: none;
+	box-shadow: -3px -3px 15px rgba(34,14,05, 0.5);
+	border-radius: 15px 0 0 15px;
+	opacity: 0.7;
+	padding-left: 15px;
+}
+
+.tb-form-round {
+	border-radius: 15px;
+}
+
+.btn-form, .btn-form-round {
+	text-align: right;
+	height: 32px;
+	outline: none;
+	border: none;
+	box-shadow: 6px -3px 15px rgba(34,14,05, 0.5);
+	border-radius: 0 15px 15px 0;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+.btn-form-round {
+	border-radius: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+	.btn-form-round:active, .btn-form:active {
+		background: #E8E8E8;
+	}
+
+
+
+.file-upload {
+	position: relative;
+	overflow: hidden;
+	height: 32px; /* example */
+	width: 45px;
+	border-radius: 0 15px 15px 0;
+	box-shadow: 6px -3px 15px rgba(34,14,05, 0.5);
+	cursor: pointer;
+}
+
+	.file-upload > button {
+		float: right;
+		height: 100%;
+		cursor: pointer;
+	}
+
+	.file-upload input[type=file] {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		transform: scale(20);
+		letter-spacing: 10em; /* IE 9 fix */
+		-ms-transform: scale(20); /* IE 9 fix */
+		opacity: 0;
+		cursor: pointer;
+	}
+
+.label-container {
+	width: 200px;
+	padding-right: 20px;
+	color: white;
+	font-family: 'Dancing Script', cursive;
+	font-size: 24px;
+	font-weight: bold;
+	opacity: 0.8;
+}
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
+}
+
+.middle {
+	text-align: center;
+}
+
+.tb-create, .tb-area {
+	width: 557px;
+}
+
+.tb-area {
+	height: 400px;
+	padding-top: 10px;
+}
+
+.tb-image {
+	width: 513px;
 }

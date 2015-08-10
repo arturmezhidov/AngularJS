@@ -1,0 +1,16 @@
+﻿<div class="news-preview-container">
+	<div class="news-preview-img-container">
+		<a href="#/news/{{newsInfo.id}}"><img ng-src="{{newsInfo.imgUrl}}" class="news-preview-img" alt="#" /></a>
+	</div>
+	<div class="news-preview-head-container">
+		<a href="#/news/{{newsInfo.id}}" ng-bind="newsInfo.head" class="news-preview-head"></a>
+	</div>
+	<div class="news-preview-text-container">
+		<p ng-bind="newsInfo.body | newsPreviewText" class="news-preview-text"></p>
+	</div>
+	<div class="news-preview-footer">
+		<a href="#/news/{{newsInfo.id}}" class="news-preview-readmore">Read more</a>
+		<span ng-bind="newsInfo.date" class="news-date"></span>
+	</div>
+</div>
+ 

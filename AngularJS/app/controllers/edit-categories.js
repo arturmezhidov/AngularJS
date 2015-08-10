@@ -17,9 +17,10 @@
 		vm.removeCategory = removeCategory;
 		vm.reset = reset;
 		vm.save = editor.save;
+		vm.clear = clear;
 
 		function addCategory() {
-			editor.add(vm.categoryName);
+			editor.add(vm.categoryName, vm.file.name);
 			vm.categoryName = null;
 		}
 		function removeCategory(category) {
@@ -28,6 +29,9 @@
 		function reset() {
 			editor.reset();
 			vm.categoryName = null;
+		}
+		function clear(category) {
+			category.name = null;
 		}
 	}
 })();

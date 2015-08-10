@@ -1,12 +1,32 @@
 ﻿[
-	{
-		"id": 100,
-		"name": "Политика"
-	},	{
-		"id": 101,
-		"name": "Экономика"
-	},	{
-		"id": 102,
-		"name": "Спорт"
-	}
+    {
+        "id": 101,
+        "file": { "name": "app-data/images/economy.jpg"},
+        "name": "Economy"
+    },
+    {
+        "id": 102,
+        "file": { "name": "app-data/images/sport.jpg" },
+        "name": "Sport"
+    },
+    {
+        "id": 103,
+         "file": { "name": "app-data/images/avto.jpg"},
+        "name": "Auto"
+    },
+    {
+        "id": 104,
+         "file": { "name": "app-data/images/culture.jpg"},
+        "name": "Culture"
+    },
+    {
+        "id": 105,
+         "file": { "name": "app-data/images/society.jpg"},
+        "name": "Society"
+    },
+    {
+        "id": 106,
+         "file": { "name": "app-data/images/realestate.jpg"},
+        "name": "Real estate"
+    }
 ]

@@ -1,0 +1,76 @@
+﻿<div class="caption-cotainer">
+	<div class="caption">
+		<p class="caption-text">Creating news</p>
+	</div>
+	<div class="btn-head-container">
+		<a href="#/" class="btn-head">Categories</a>
+	</div>
+</div>
+
+<div class="body-container">
+	<div class="shadow-panel">
+
+		<div class="form-container">
+
+			<div class="form-row">
+				<div class="form-cell right label-container">
+					<label for="head" class="">Head</label>
+				</div>
+				<div class="form-cell">
+					<input type="text" id="head" ng-model="ctrl.head" class="tb-form-round tb-create" />
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-cell right label-container">
+					<label for="category" class="">Category</label>
+				</div>
+				<div class="form-cell">
+					<select id="category" ng-model="ctrl.idCategory" class="tb-form-round">
+						<option ng-repeat="category in ctrl.categories | CategoryesNews" value="{{category.id}}">{{category.name}}</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-cell right label-container">
+					<label for="date" class="">Date</label>
+				</div>
+				<div class="form-cell">
+					<input type="date" id="date" ng-model="ctrl.date" class="tb-form-round tb-create" />
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-cell right label-container">
+					<label for="image" class="">Image</label>
+				</div>
+				<div class="form-cell">
+					<input type="text" id="image" ng-model="ctrl.file.name" class="tb-form tb-image">
+				</div>
+				<div class="form-cell">
+					<div class="file-upload">
+						<button class="btn-form">Image</button>
+						<input type="file" file="ctrl.file" />
+					</div>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-cell right label-container">
+					<label for="text" class="">Text</label>
+				</div>
+				<div class="form-cell">
+					<textarea ng-model="ctrl.body" class="tb-form-round tb-area"></textarea>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-cell middle">
+					<button ng-click="ctrl.add()" class="btn-form-round">Create</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

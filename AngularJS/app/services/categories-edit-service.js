@@ -22,9 +22,9 @@
 		function get() {
 			return editing;
 		}
-		function add(name) {
+		function add(name, imgUrl) {
 			var id = nextId();
-			var category = builder.create(id, name);
+			var category = builder.create(id, name, imgUrl);
 			editing.push(category);
 		}
 		function remove(id) {
@@ -54,6 +54,7 @@
 			source.forEach(function (item) {
 				dest.push(builder.copy(item));
 			});
+			return dest;
 		}
 		function nextId() {
 			var maxId = (editing.length && editing[editing.length - 1].id) || 0;

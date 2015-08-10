@@ -1,0 +1,15 @@
+﻿<div class="caption-cotainer">
+	<div class="caption">
+		<p class="caption-text">Search result</p>
+	</div>
+	<div class="btn-head-container">
+		<a href="#/" class="btn-head">Categories</a>
+		<a href="#/create" class="btn-head">Create news</a>
+	</div>
+</div>
+
+<div class="body-container">
+	<div ng-repeat="newsInfo in ctrl.news | filter : ctrl.searchInfo.text | orderBy : newsInfo.date">
+		<news-preview info="newsInfo"></news-preview>
+	</div>
+</div>

@@ -4,11 +4,11 @@
 
 	angular
 		.module('Category')
-		.controller('CategoryController', categoryController);
+		.controller('CategoriesController', CategoriesController);
 
-	categoryController.$inject = ['$location', 'CategoryService'];
+	CategoriesController.$inject = ['$location', 'CategoryService'];
 
-	function categoryController($location, srvCategory) {
+	function CategoriesController($location, srvCategory) {
 
 		var vm = this;
 		vm.categories = srvCategory.getAll();

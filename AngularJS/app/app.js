@@ -15,13 +15,18 @@
 	]).config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
-				templateUrl: '/app/views/news-all.html',
-				controller: 'AllNewsController',
+				templateUrl: '/app/views/categories.html',
+				controller: 'CategoriesController',
+				controllerAs: 'ctrl'
+			})
+			.when('/news-category', {
+				templateUrl: '/app/views/news-category.html',
+				controller: 'NewsCategoryController',
 				controllerAs: 'ctrl'
 			})
 			.when('/news/:id', {
-				templateUrl: '/app/views/new.html',
-				controller: 'NewController',
+				templateUrl: '/app/views/news.html',
+				controller: 'NewsController',
 				controllerAs: 'ctrl'
 			})
 			.when('/edit', {
@@ -29,9 +34,24 @@
 				controller: 'EditCategoryController',
 				controllerAs: 'ctrl'
 			})
+			.when('/create', {
+				templateUrl: '/app/views/create-news.html',
+				controller: 'CreateNewsController',
+				controllerAs: 'ctrl'
+			})
+			.when('/search', {
+				templateUrl: '/app/views/search-result.html',
+				controller: 'SearchResultController',
+				controllerAs: 'ctrl'
+			})
+			.when('/e404', {
+				templateUrl: '/app/views/e404.html'
+			})
 			.otherwise({
-				redirectTo: '/'
+				redirectTo: '/e404'
+
 			});
+
 	});
 
 })();
