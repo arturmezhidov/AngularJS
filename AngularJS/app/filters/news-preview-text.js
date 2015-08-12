@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular
-		.module('News')
+		.module('Filters')
 		.filter('newsPreviewText', newsPreviewText);
 
 	function newsPreviewText() {

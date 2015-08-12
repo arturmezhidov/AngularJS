@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular
-		.module('Category')
+		.module('Filters')
 		.filter('CategoryesNews', ctegoryesNews);
 
 	function ctegoryesNews() {

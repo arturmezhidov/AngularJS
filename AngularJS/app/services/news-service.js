@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular
-		.module('News')
+		.module('Services')
 		.service('NewsService', NewsService);
 
 	NewsService.$inject = ['BuildNewsFactory', 'WebStorage', 'config'];

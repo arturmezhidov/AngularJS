@@ -92,7 +92,6 @@
     <Content Include="app\filters\news-of-category.js" />
     <Content Include="app\services\build-news-factory.js" />
     <Content Include="app\services\build-category-factory.js" />
-    <Content Include="app\services\categories-edit-service.js" />
     <Content Include="app\services\categories-service.js" />
     <Content Include="app\directives\news-preview.js" />
     <Content Include="app\services\search-service.js" />

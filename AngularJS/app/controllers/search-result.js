@@ -2,12 +2,12 @@
 	'use strict';
 
 	angular
-		.module('News')
+		.module('Controllers')
 		.controller('SearchResultController', SearchResultController);
 
-	SearchResultController.$inject = ['$location', '$routeParams', 'NewsService', 'SearchService'];
+	SearchResultController.$inject = ['$routeParams', 'NewsService', 'SearchService'];
 
-	function SearchResultController($location, $routeParams, srvNews, srvSearch) {
+	function SearchResultController($routeParams, srvNews, srvSearch) {
 		var vm = this;
 		vm.news = srvNews.getAll();
 		vm.searchInfo = srvSearch.getInfo();

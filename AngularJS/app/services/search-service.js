@@ -1,14 +1,14 @@
-﻿(function () {
+﻿/// <reference path="../directives/news-preview.js" />
+(function () {
 
 	'use strict';
 
 	angular
-		.module('News')
+		.module('Services')
 		.service('SearchService', SearchService);
 
 	function SearchService() {
 
-		var self = this;
 		var searchInfo = {
 			text: ""
 		};

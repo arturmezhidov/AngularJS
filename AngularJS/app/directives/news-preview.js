@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular
-		.module('News')
+		.module('Directives')
 		.directive('newsPreview', newsPreview);
 
 	function newsPreview() {

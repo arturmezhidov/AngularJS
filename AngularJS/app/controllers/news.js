@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('News')
+		.module('Controllers')
 		.controller('NewsController', NewsController);
 
 	NewsController.$inject = ['$location', '$routeParams', 'NewsService', 'CategoryService'];
