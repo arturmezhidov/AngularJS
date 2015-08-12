@@ -6,14 +6,22 @@
 		.module('News')
 		.controller('NewsCategoryController', NewsCategoryController);
 
-	NewsCategoryController.$inject = ['$location', 'NewsService', 'CategoryService'];
+	NewsCategoryController.$inject = ['$location', '$routeParams', 'NewsService', 'CategoryService'];
 
-	function NewsCategoryController($location, srvNews, srvCategory) {
+	function NewsCategoryController($location, $routeParams, srvNews, srvCategory) {
+
 		var vm = this;
+		vm.isEmpty = isEmpty;
 		vm.news = srvNews.getAll();
-		vm.currentCategory = srvCategory.current();
-		vm.isEmpty = function () {
-			return true;
+		vm.category = srvCategory.getById($routeParams.id);
+
+		if (!vm.category) {
+			$location.path('/e404');
+		}
+
+		function isEmpty() {
+			var result = srvNews.exists(vm.category.id);
+			return result !== true;
 		}
 	}
 })();

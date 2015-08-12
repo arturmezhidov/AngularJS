@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular
-		.module('News')
+		.module('Utils')
 		.directive('file', file);
 
 	file.$inject = ['$parse'];

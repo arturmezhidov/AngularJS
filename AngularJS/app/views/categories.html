@@ -9,8 +9,8 @@
 </div>
 
 <div class="body-container">
-	<a href="#/news-category" ng-repeat="category in ctrl.categories">
-		<div ng-click="ctrl.selectCategory(category)" class="category-container">
+	<a href="#/category/{{category.id}}" ng-repeat="category in ctrl.categories">
+		<div class="category-container">
 			<img ng-src="{{category.file.name}}" class="category-img" />
 			<p ng-bind="category.name" class="category-caption"></p>
 		</div>

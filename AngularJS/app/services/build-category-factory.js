@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('Models')
+		.module('Builders')
 		.factory('BuildCategoryFactory', buildCategoryFactory);
 
 	function buildCategoryFactory() {

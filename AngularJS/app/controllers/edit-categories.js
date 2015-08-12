@@ -3,31 +3,32 @@
 	'use strict';
 
 	angular
-		.module('Category')
+		.module('Builders')
 		.controller('EditCategoryController', EditCategoryController);
 
-	EditCategoryController.$inject = ['$location', 'CategoryEditService'];
+	EditCategoryController.$inject = ['CategoryEditService'];
 
-	function EditCategoryController($location, editor) {
+	function EditCategoryController(srvEditor) {
 
 		var vm = this;
-		vm.categories = editor.get();
-
+		vm.categories = srvEditor.get();
+		
 		vm.addCategory = addCategory;
 		vm.removeCategory = removeCategory;
 		vm.reset = reset;
-		vm.save = editor.save;
+		vm.save = srvEditor.save;
 		vm.clear = clear;
 
 		function addCategory() {
-			editor.add(vm.categoryName, vm.file.name);
+			srvEditor.add(vm.categoryName, vm.file);
 			vm.categoryName = null;
 		}
 		function removeCategory(category) {
-			editor.remove(category.id);
+			srvEditor.remove(category.id);
 		}
 		function reset() {
-			editor.reset();
+			srvEditor.reset();
+			vm.categories = srvEditor.get();
 			vm.categoryName = null;
 		}
 		function clear(category) {

@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('Models')
+		.module('Builders')
 		.factory('BuildNewsFactory', buildNewsFactory);
 
 	function buildNewsFactory() {
@@ -22,7 +22,7 @@
 				head: head,
 				body: body,
 				imgUrl: imgUrl,
-				date: date
+				date: date 
 			}
 		}
 		function copy(source, dist) {

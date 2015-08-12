@@ -9,7 +9,7 @@
 
 	function SearchResultController($location, $routeParams, srvNews, srvSearch) {
 		var vm = this;
-		vm.searchInfo = srvSearch.getInfo();
 		vm.news = srvNews.getAll();
+		vm.searchInfo = srvSearch.getInfo();
 	}
 })();

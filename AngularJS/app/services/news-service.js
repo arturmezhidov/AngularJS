@@ -6,77 +6,69 @@
 		.module('News')
 		.service('NewsService', NewsService);
 
-	NewsService.$inject = ['$http', 'BuildNewsFactory'];
+	NewsService.$inject = ['BuildNewsFactory', 'WebStorage', 'config'];
 
-	function NewsService($http, buildNews) {
+	function NewsService(buildNews, webStorage, config) {
 
-		var self = this;
-		var news = [];
+		var news = webStorage.get(config.NewsWebStorageKey) || [];
 
-		this.add = add;
-		this.remove = remove;
-		this.removeCategory = removeCategory;
-		this.find = find;
-		this.getById = getById;
 		this.getAll = getAll;
+		this.getById = getById;
+		this.add = add;
+		this.exists = exists;
 
-		function add(head, body, imgUrl, idCategory, date) {
-			var maxId = (news.length && news[news.length - 1].id) || 0;
-			if (!date) {
-				date = (new Date()).toLocaleDateString();
-			} else if ((typeof date) == "object") {
-				date = date.toLocaleDateString();
-			}
-			idCategory = isNaN(idCategory)
-				? -1
-				: parseInt(idCategory);
-			news.unshift(buildNews.create(maxId + 1, idCategory, head, body, imgUrl, date));
+		function getAll() {
+			return news;
 		}
-		function find(id) {
+		function getById(id) {
 			if (isNaN(id)) {
 				return null;
 			}
 			id = parseInt(id);
 			for (var i = 0; i < news.length; i++) {
 				if (news[i].id === id) {
-					return {
-						index: i,
-						obj: news[i]
-					}
+					return news[i];
 				}
 			}
 			return null;
 		}
-		function remove(id) {
-			var result = self.find(id);
-			if (result) {
-				news.splice(result.index, 1);
+		function add(head, body, file, idCategory, date) {
+
+			var id = nextId();
+			var imgUrl = file && file.name;
+
+			try {
+				idCategory = parseInt(idCategory);
+				date = date
+					? date.toLocaleDateString()
+					: (new Date()).toLocaleDateString();
+			} catch (e) {
+				return;
+			}
+
+			var newNews = buildNews.create(id, idCategory, head, body, imgUrl, date);
+
+			if (newNews) {
+				news.unshift(newNews);
+				webStorage.set(config.NewsWebStorageKey, news);
 			}
 		}
-		function removeCategory(idCategory) {
-			var result = [];
+		function exists(id) {
+			if (isNaN(id)) {
+				return false;
+			}
+			id = parseInt(id);
 			for (var i = 0; i < news.length; i++) {
-				if (news[i].idCategory !== idCategory) {
-					result.push(news[i]);
+				if (news[i].idCategory === id) {
+					return true;
 				}
 			}
-			news = result;
-		}
-		function getAll() {
-			return news;
-		}
-		function getById(id) {
-			var result = self.find(id);
-			return result && result.obj;
+			return false;
 		}
 
-		$http.get("app-data/news.json")
-			.then(function (response) {
-				response.data.forEach(function (item) {
-					news.push(item);
-				});
-			}, function (response) {
-				alert('news sevice error');
-			});
+		function nextId() {
+			var maxId = (news.length && news[news.length - 1].id) || 0;
+			return maxId + 1;
+		}
 	}
 })();

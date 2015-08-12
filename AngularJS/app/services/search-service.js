@@ -6,9 +6,7 @@
 		.module('News')
 		.service('SearchService', SearchService);
 
-	SearchService.$inject = ['$http'];
-
-	function SearchService($http) {
+	function SearchService() {
 
 		var self = this;
 		var searchInfo = {

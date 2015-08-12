@@ -80,6 +80,8 @@
     <Content Include="app-data\images\s5.jpg" />
     <Content Include="app-data\images\society.jpg" />
     <Content Include="app-data\images\sport.jpg" />
+    <Content Include="app\routing.js" />
+    <Content Include="app\config.js" />
     <Content Include="app\controllers\create-news.js" />
     <Content Include="app\controllers\edit-categories.js" />
     <Content Include="app\controllers\search-result.js" />
@@ -92,7 +94,6 @@
     <Content Include="app\services\build-category-factory.js" />
     <Content Include="app\services\categories-edit-service.js" />
     <Content Include="app\services\categories-service.js" />
-    <Content Include="app\config.js" />
     <Content Include="app\directives\news-preview.js" />
     <Content Include="app\services\search-service.js" />
     <Content Include="app\services\web-storage.js" />

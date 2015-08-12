@@ -6,16 +6,10 @@
 		.module('Category')
 		.controller('CategoriesController', CategoriesController);
 
-	CategoriesController.$inject = ['$location', 'CategoryService'];
+	CategoriesController.$inject = ['CategoryService'];
 
-	function CategoriesController($location, srvCategory) {
-
+	function CategoriesController(srvCategory) {
 		var vm = this;
 		vm.categories = srvCategory.getAll();
-		vm.selectCategory = selectCategory;
-
-		function selectCategory(category) {
-			srvCategory.current(category);
-		}
 	}
 })();
